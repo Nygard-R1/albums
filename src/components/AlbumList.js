@@ -3,6 +3,11 @@ import React, { Component } from 'react'; // React.createElement is called from
 import { View, Text } from 'react-native';
 
 class AlbumList extends Component {
+  componentWillMount() {
+    console.log('componentWillMount in AlbumList');
+    debugger; //debug breakpoint
+  }
+
   render() {
     return (
         <View>
