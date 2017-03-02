@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card.js';
 import CardSection from './CardSection.js';
 import TextContainer from './TextContainer.js';
+import Button from './Button.js';
 
 const AlbumDetail = ({ album }) => {
   const {
@@ -12,7 +13,7 @@ const AlbumDetail = ({ album }) => {
     headerTextStyle,
     imageStyle
   } = styles;
-  const { title, artist, thumbnail_image, image } = album;
+  const { title, artist, thumbnail_image, image, url } = album;
 
   return (
     console.log('Creating Album Detail'),
@@ -26,8 +27,15 @@ const AlbumDetail = ({ album }) => {
           <Text>{artist}</Text>
         </TextContainer>
       </CardSection>
+
       <CardSection>
         <Image source={{ uri: image }} style={imageStyle} />
+      </CardSection>
+
+      <CardSection>
+        <Button onPress={() => Linking.openURL(url)}>
+          Buy Now
+        </Button>
       </CardSection>
     </Card>
   );
